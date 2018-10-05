@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+</head>
+
+<body>
+    <ul class="ct">
+        <li>这里是</li>
+        <li>饥人谷</li>
+        <li>任务班</li>
+    </ul>
+    <input class="ipt-add-content" placeholder="添加内容" />
+    <button id="btn-add-start">开头添加</button>
+    <button id="btn-add-end">结尾添加</button>
+    <script>
+        var ulBox = document.querySelector(".ct");
+        var inp = document.querySelector(".ipt-add-content");
+        var startBtn = document.querySelector("#btn-add-start");
+        var endBtn = document.querySelector("#btn-add-end");
+
+
+        function createEle() {
+            var li = document.createElement("li");
+            return li;
+        }
+
+        startBtn.onclick = function () {
+            var li = createEle();
+            if (inp.value == "") {
+                alert("请输入内容");
+                return;
+            } else {
+                li.innerText = inp.value;
+            }
+            ulBox.insertBefore(li, ulBox.firstChild);
+        }
+
+        endBtn.onclick = function () {
+            var li = createEle();
+            if (inp.value == "") {
+                alert("请输入内容");
+                return;
+            } else {
+                li.innerText = inp.value;
+            }
+            ulBox.appendChild(li);
+        }
+
+        //事件代理
+        ulBox.onclick = function (e) {
+            console.log(e.target.innerText);
+        }
+
+    </script>
+</body>
+
+</html>
